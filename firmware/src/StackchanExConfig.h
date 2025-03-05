@@ -54,6 +54,7 @@ typedef struct FnNews {
 #define TTS_TYPE_OPENAI                 2
 #define TTS_TYPE_AQUESTALK              3
 #define TTS_TYPE_MODULE_LLM             4
+#define TTS_TYPE_MODULE_LLM_EXTTTS      5
 
 #define STT_TYPE_GOOGLE                 0
 #define STT_TYPE_OPENAI_WISPER          1

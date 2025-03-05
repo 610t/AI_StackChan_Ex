@@ -4,6 +4,7 @@
 #include "tts/OpenAITTS.h"
 #include "tts/UAquesTalkTTS.h"
 #include "tts/ModuleLLMTTS.h"
+#include "tts/ModuleLLMEXTTTS.h"
 #include "stt/CloudSpeechClient.h"
 #include "stt/Whisper.h"
 #include "stt/ModuleLLMASR.h"
@@ -106,6 +107,15 @@ Robot::Robot(StackchanExConfig& config) : m_config(config)
     module_llm_param.enableTTS = true;
 #else
     Serial.println("ModuleLLM is not enabled. Please setup in platformio.ini");
+    tts = nullptr;
+#endif
+    break;
+  case TTS_TYPE_MODULE_LLM_EXTTTS:
+#if defined(USE_LLM_MODULE)
+    tts = new ModuleLLMEXTTTS();
+    module_llm_param.enableEXTTTS = true;
+#else
+    Serial.println("ModuleLLMEXTTTS is not enabled. Please define USE_LLM_MODULE.");
     tts = nullptr;
 #endif
     break;

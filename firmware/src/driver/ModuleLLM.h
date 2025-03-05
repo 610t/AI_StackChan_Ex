@@ -18,6 +18,8 @@ struct module_llm_param_t
   bool enableASR = false;
   //TTS
   bool enableTTS = false;
+  //EXTTTS
+  bool enableEXTTTS = false;
 };
 
 extern M5ModuleLLM module_llm;

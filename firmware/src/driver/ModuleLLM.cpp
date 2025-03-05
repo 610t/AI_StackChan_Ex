@@ -65,6 +65,13 @@ void module_llm_setup(module_llm_param_t param)
     tts_work_id = module_llm.tts.setup();
   }
 
+  /* Setup EXTTTS module and save returned work id */
+  if (param.enableEXTTTS)
+  {
+    M5.Display.printf(">> Setup tts..\n");
+    tts_work_id = module_llm.exttts.setup();
+  }
+
   /* Setup LLM module and save returned work id */
   if(param.enableLLM){
     M5.Display.printf(">> Setup llm..\n");
